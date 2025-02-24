@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'primeicons/primeicons.css';
+@use '@/assets/layout/layout.scss';
+
+:root {
+  --p-breadcrumb-background: 'transparent' !important;
+  --p-breadcrumb-padding: 0 !important;
+}

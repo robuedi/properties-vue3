@@ -1,18 +1,34 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
+import AppLayout from '@/layout/AppLayout.vue'
+import Dashboard from '@/views/Dashboard.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/AboutView.vue'),
+      component: AppLayout,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: Dashboard,
+        },
+        {
+          path: '/my-properties/all',
+          name: 'propertiesIndex',
+          component: () => import('@/views/properties/PropertiesIndex.vue'),
+        },
+        {
+          path: '/my-properties/add',
+          name: 'propertiesAdd',
+          component: () => import('@/views/properties/PropertiesAdd.vue'),
+        },
+        {
+          path: '/about',
+          name: 'about',
+          component: () => import('@/views/AboutView.vue'),
+        },
+      ],
     },
   ],
 })
