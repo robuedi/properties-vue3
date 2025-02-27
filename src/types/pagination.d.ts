@@ -1,22 +1,24 @@
+import type { APIState } from './database'
+
 type ListingLinks = {
   first: string
-  last: string,
-  next: ?string,
+  last: string
+  next: ?string
   prev: ?string
 }
 
 type ListingMetaLink = {
-  url: ?string,
-  label: string,
+  url: ?string
+  label: string
   active: boolean
 }
 
 type ListingMeta = {
-  current_page: number,
-  from: number,
-  last_page: number,
+  current_page: number
+  from: number
+  last_page: number
   links: ListingMetaLink[]
-  path: string,
+  path: string
   per_page: number
   public_fields: string[]
   to: number
@@ -24,7 +26,8 @@ type ListingMeta = {
 }
 
 export type APICollectionListing<T> = {
-  data: T[],
-  links: ListingLinks,
+  data: T[]
+  links: ListingLinks
   meta: ListingMeta
+  apiState: APIState
 }

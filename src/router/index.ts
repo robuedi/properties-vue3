@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AppLayout from '@/layout/AppLayout.vue'
-import Dashboard from '@/views/Dashboard.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,7 +11,7 @@ const router = createRouter({
         {
           path: '/',
           name: 'home',
-          component: Dashboard,
+          component: () => import('@/views/HomeView.vue'),
         },
         {
           path: '/my-properties/all',
